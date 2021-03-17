@@ -1,0 +1,10 @@
+# google calendar
+credentials.json
+token.pickle
+
+image*.bmp
+
+.env
+.venv
+
+/__pycache__

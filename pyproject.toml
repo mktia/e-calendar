@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "e-calendar"
+version = "0.1.0"
+description = "generate a calendar image for e-paper"
+authors = ["mktia <19624453+mktia@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+google-api-python-client = "^1.12.8"
+google-auth-httplib2 = "^0.0.4"
+google-auth-oauthlib = "^0.4.2"
+Pillow = "^8.1.1"
+numpy = "^1.20.1"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
