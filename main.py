@@ -200,3 +200,5 @@ for h, row in enumerate(calendar):
 
 # show the calendar on e-paper
 epd.display(epd.getbuffer(img_b), epd.getbuffer(img_r))
+
+epd.sleep()
