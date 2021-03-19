@@ -39,7 +39,6 @@ SIZE = (600, 800)
 img = Image.new('L', SIZE, '#FFF')
 
 today = date.today()
-today = date(2022, 2, 1)
 year = today.year
 month = today.month
 

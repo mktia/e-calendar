@@ -50,7 +50,6 @@ MAIN_WIDTH = 560
 img = Image.new('RGB', SIZE, COLOR['white'])
 
 today = date.today()
-today = date(2022, 2, 1)
 year = today.year
 month = today.month
 

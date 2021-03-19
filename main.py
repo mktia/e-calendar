@@ -61,8 +61,6 @@ img_b = Image.new('1', SIZE, COLOR['white'])
 img_r = Image.new('1', SIZE, COLOR['white'])
 
 today = date.today()
-# todo: delete #######################
-# today = date(2022, 2, 1)
 year = today.year
 month = today.month
 
