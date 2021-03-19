@@ -140,15 +140,24 @@ draw_b.line(
 # show the schedule
 event_count = 8
 for h, event in enumerate(events[:event_count]):
-    dt = "/".join([str(int(i)) for i in event[1][0].split("-")[1:]])
+    dt = ".".join([str(int(i)) for i in event[1][0].split("-")[1:]])
+    # show the time of schedule
+    if len(event[1]) != 1:
+        content = event[0][:8] + ('' if len(event[0]) < 9 else "…")
+    else:
+        content = event[0][:11] + ('' if len(event[0]) < 12 else "…")
     text = f'{dt + "  " * ( 5 - len(dt))}' \
         + f'{f" {event[1][1][:5]}" if len(event[1]) != 1 else ""}' \
-        + f' {event[0] if len(event[0]) < 14 else event[0][:10] + "…"}'
-    draw_b.multiline_text((MAIN_WIDTH + 10, 6 + 30 * h),
-                          text, font=get_font('ja', 18), fill=COLOR['black'])
+        + f' {content}'
+    if 'TODO' in content:
+        draw_r.multiline_text((MAIN_WIDTH + 10, 6 + 32 * h),
+                            text, font=get_font('ja', 20), fill=COLOR['red'])
+    else:
+        draw_b.multiline_text((MAIN_WIDTH + 10, 6 + 32 * h),
+                            text, font=get_font('ja', 20), fill=COLOR['black'])
     if 0 < h < 8:
         draw_b.line(
-            ((MAIN_WIDTH + 16, 6 + 30 * h), (SIZE[0] - 16, 6 + 30 * h)),
+            ((MAIN_WIDTH + 16, 6 + 32 * h), (SIZE[0] - 16, 6 + 32 * h)),
             fill=COLOR['black'],
             width=1
         )
@@ -162,9 +171,8 @@ draw_b.multiline_text((10, SIZE[1] - 30), f'Updated at {dt}',
 year, month = [year, month + 1] if month < 12 else [year + 1, 1]
 calendar = get_calendar(year, month)
 
-w_day = (SIZE[0] - MAIN_WIDTH) // 7
-x_start = np.arange(7) * w_day + MAIN_WIDTH
-
+w_day = (SIZE[0] - MAIN_WIDTH - 2) // 7
+x_start = np.arange(7) * w_day + MAIN_WIDTH + 2
 
 draw_b.multiline_text(
     (padding_width(SIZE[0] - MAIN_WIDTH,
@@ -198,5 +206,8 @@ for h, row in enumerate(calendar):
 
 # show the calendar on e-paper
 epd.display(epd.getbuffer(img_b), epd.getbuffer(img_r))
-
 epd.sleep()
+
+# save an image for test
+img_b.save('image_b.bmp', 'bmp')
+img_r.save('image_r.bmp', 'bmp')
