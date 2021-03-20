@@ -13,6 +13,13 @@ $ git clone https://github.com/mktia/e-calendar.git && cd ./e-calendar
 $ poetry install
 ```
 
+**Working on Raspberry Pi**, you must install missing packages to control GPIO and SPI.
+
+```sh
+$ pip3 install RPi.GPIO
+$ pip3 install spidev
+```
+
 ## Usage
 
 Note that these are free fonts in `./Fonts` directory.
