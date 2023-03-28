@@ -13,7 +13,7 @@ from connect_calendar import Calendar
 
 def get_calendar(year: int, month: int):
     calendar_eu = cal.monthcalendar(year, month)
-    formatted = [0]+list(itertools.chain.from_iterable(calendar_eu))[:-1]
+    formatted = [0]+list(itertools.chain.from_iterable(calendar_eu))+[0 for i in range(6)]
     return np.array(formatted).reshape(-1, 7).tolist()
 
 
