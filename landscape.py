@@ -154,6 +154,7 @@ draw.multiline_text((10, SIZE[1] - 30), f'Updated at {dt}',
 # get the calendar of next month
 year, month = [year, month + 1] if month < 12 else [year + 1, 1]
 calendar = get_calendar(year, month)
+_, _, holidays = Calendar.get_events(date(year, month, 1))
 
 w_day = (SIZE[0] - MAIN_WIDTH) // 7
 x_start = np.arange(7) * w_day + MAIN_WIDTH
