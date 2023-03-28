@@ -68,7 +68,7 @@ draw.line(((10, 110), (SIZE[0] - 10, 110)), fill=grey[0], width=2)
 days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 # get the date of this month
 calendar_eu = calendar.monthcalendar(year, month)
-formatted = [0]+list(itertools.chain.from_iterable(calendar_eu))[:-1]
+formatted = [0]+list(itertools.chain.from_iterable(calendar_eu))+[0 for i in range(6)]
 calendar = np.array(formatted).reshape(-1, 7).tolist()
 
 w_day = 600 // 7
